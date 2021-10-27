@@ -9,8 +9,11 @@ const contacts = _.cms('contacts') || {}
     <div class="row">
       <div class="col-12 col-lg-auto order-lg-last pl-xl-4">
         <div class="footer__contacts">
+          <h2 class="footer__title footer__store">
+            <%= footer.description.title || _.settings.name %>
+          </h2>
           <% if (footer.contacts.title) { %>
-            <div class="footer__title">
+            <div class="contact-title">
               <%= footer.contacts.title %>
             </div>
           <% } %>
@@ -69,6 +72,7 @@ const contacts = _.cms('contacts') || {}
               <%- await include('@/layout/inc/networks', { _, contacts }) %>
             </p>
           <% } %>
+          <img src="/img/uploads/impulsiona.png" alt="Impulsiona Web">
         </div>
       </div>
 
@@ -156,9 +160,9 @@ const contacts = _.cms('contacts') || {}
       <% } %>
 
       <div class="col-12 col-xl order-lg-first">
-        <h2 class="footer__title footer__store">
-          <%= footer.description.title || _.settings.name %>
-        </h2>
+        <a href="/">
+          <%- await include('@/layout/inc/logo', { _ }) %>
+        </a>
         <p><%- footer.description.text || _.settings.description %></p>
 
         <div class="mt-4 mb-3">
@@ -180,14 +184,6 @@ const contacts = _.cms('contacts') || {}
       <span>
         <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
       </span>
-      <button
-        id="go-to-top"
-        class="btn btn-primary ml-3"
-        type="button"
-        aria-label="<%= _.dictionary('goToTop') %>"
-      >
-        <i class="fas fa-chevron-up"></i>
-      </button>
     </div>
   </div>
 </footer>
